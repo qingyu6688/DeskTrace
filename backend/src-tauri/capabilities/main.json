@@ -1,0 +1,39 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "main",
+  "description": "主窗口只能调用 DeskTrace 自己的业务命令并接收刷新事件，不开放文件、SQL、Shell 或插件接口。",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:event:allow-listen",
+    "core:event:allow-unlisten",
+    "allow-get-bootstrap-status",
+    "allow-get-overview",
+    "allow-list-objects",
+    "allow-get-object-detail",
+    "allow-list-object-events",
+    "allow-refresh-application-catalog",
+    "allow-get-collector-status",
+    "allow-set-collection-state",
+    "allow-pick-folder-scope",
+    "allow-add-folder-scope",
+    "allow-add-desktop-scope",
+    "allow-list-folder-scopes",
+    "allow-update-folder-scope",
+    "allow-remove-folder-scope",
+    "allow-add-exclusion",
+    "allow-list-exclusions",
+    "allow-remove-exclusion",
+    "allow-get-settings",
+    "allow-update-settings",
+    "allow-open-object-location",
+    "allow-open-application-settings",
+    "allow-open-recent-items-settings",
+    "allow-request-export",
+    "allow-get-job-status",
+    "allow-cancel-job",
+    "allow-prepare-clear-usage-data",
+    "allow-clear-usage-data"
+  ]
+}

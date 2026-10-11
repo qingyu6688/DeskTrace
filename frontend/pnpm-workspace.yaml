@@ -1,0 +1,5 @@
+minimumReleaseAgeExclude:
+  - '@types/node@26.6.5'
+  - '@vitejs/plugin-vue@6.0.10'
+  - '@vue/language-core@3.3.13'
+  - vue-tsc@3.3.13

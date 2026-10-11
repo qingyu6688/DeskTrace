@@ -1,0 +1,50 @@
+[workspace]
+members = ["crates/desktrace-core", "crates/desktrace-storage", "crates/desktrace-windows", "src-tauri"]
+default-members = ["crates/desktrace-core", "crates/desktrace-storage", "crates/desktrace-windows"]
+resolver = "2"
+
+[workspace.package]
+version = "0.6.0"
+edition = "2024"
+rust-version = "1.96"
+
+[workspace.dependencies]
+anyhow = "=1.0.104"
+desktrace-core = { path = "crates/desktrace-core" }
+desktrace-storage = { path = "crates/desktrace-storage" }
+desktrace-windows = { path = "crates/desktrace-windows" }
+rusqlite = { version = "=0.40.2", default-features = false, features = ["bundled"] }
+serde = { version = "=1.0.229", features = ["derive"] }
+serde_json = "=1.0.152"
+sha2 = "=0.11.0"
+thiserror = "=2.0.21"
+uuid = { version = "=1.28.0", features = ["v4"] }
+# 与 Tauri 间接依赖的版本保持一致，只按实际调用开启特性。
+windows = { version = "=0.62.2", features = [
+  "ApplicationModel",
+  "ApplicationModel_Core",
+  "Foundation",
+  "Foundation_Collections",
+  "Management_Deployment",
+  "Win32_Foundation",
+  "Win32_Graphics_Gdi",
+  "Win32_Security",
+  "Win32_Storage_FileSystem",
+  "Win32_Storage_Packaging_Appx",
+  "Win32_System_Com",
+  "Win32_System_Environment",
+  "Win32_System_IO",
+  "Win32_System_LibraryLoader",
+  "Win32_System_Ole",
+  "Win32_System_Registry",
+  "Win32_System_RemoteDesktop",
+  "Win32_System_SystemInformation",
+  "Win32_System_Threading",
+  "Win32_System_Time",
+  "Win32_System_Variant",
+  "Win32_UI_Accessibility",
+  "Win32_UI_Input_KeyboardAndMouse",
+  "Win32_UI_Shell",
+  "Win32_UI_Shell_Common",
+  "Win32_UI_WindowsAndMessaging",
+] }

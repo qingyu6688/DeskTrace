@@ -1,0 +1,22 @@
+[package]
+name = "desktrace-desktop"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
+[lib]
+name = "desktrace_desktop_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "=2.7.1", features = [] }
+
+[dependencies]
+tauri = { version = "=2.12.2", features = ["tray-icon"] }
+desktrace-core.workspace = true
+desktrace-storage.workspace = true
+desktrace-windows.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+uuid.workspace = true
+anyhow.workspace = true

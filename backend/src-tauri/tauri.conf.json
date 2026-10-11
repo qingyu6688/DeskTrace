@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "DeskTrace",
+  "version": "0.6.0",
+  "identifier": "com.desktrace.desktop",
+  "build": {
+    "beforeDevCommand": { "script": "pnpm dev", "cwd": "../../frontend" },
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": { "script": "pnpm build", "cwd": "../../frontend" },
+    "frontendDist": "../../frontend/dist"
+  },
+  "app": {
+    "windows": [{ "label": "main", "title": "DeskTrace · 使用记录", "width": 1280, "height": 800, "minWidth": 960, "minHeight": 640, "visible": false }],
+    "security": {
+      "capabilities": ["main"],
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src ipc: http://ipc.localhost; object-src 'none'; frame-src 'none'",
+      "devCsp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src ipc: http://ipc.localhost http://127.0.0.1:1420 ws://127.0.0.1:1421; object-src 'none'; frame-src 'none'"
+    }
+  },
+  "bundle": { "active": false, "targets": ["nsis"], "icon": ["icons/icon.png", "icons/icon.ico"] }
+}

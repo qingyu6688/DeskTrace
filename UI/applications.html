@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>应用 · DeskTrace 界面原型</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2457c5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 14l3-3 3 2 4-5"/></svg>
+      DeskTrace
+    </div>
+    <div class="topbar-spacer"></div>
+    <div class="topbar-status">
+      <span class="dot dot--ok" aria-hidden="true"></span>
+      <span>正在记录</span>
+      <span class="sep" aria-hidden="true">·</span>
+      <span>应用、文件夹均正常</span>
+      <span class="sep" aria-hidden="true">·</span>
+      <span>已观察 131 天</span>
+    </div>
+    <button type="button" class="btn btn--sm">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>
+      暂停记录
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="主导航">
+      <a class="nav-link" href="overview.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        <span class="nav-label">概览</span>
+      </a>
+      <a class="nav-link" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <span class="nav-label">文件夹</span>
+        <span class="nav-count">64</span>
+      </a>
+      <a class="nav-link is-active" href="applications.html" aria-current="page">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg>
+        <span class="nav-label">应用</span>
+        <span class="nav-count">186</span>
+      </a>
+      <a class="nav-link" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        <span class="nav-label">设置</span>
+      </a>
+      <div class="sidebar-foot">
+        <div>观察起点</div>
+        <div class="mono">2026-06-02 10:21</div>
+        <div style="margin-top: 6px">关闭窗口后在托盘继续记录</div>
+      </div>
+    </nav>
+
+    <main class="content">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">应用</h1>
+          <p class="page-desc">186 个应用 · 清单于今天 08:30 刷新，下次 14:30</p>
+        </div>
+        <button type="button" class="btn">刷新清单</button>
+        <button type="button" class="btn btn--primary">导出当前结果</button>
+      </div>
+
+      <div class="toolbar">
+        <label class="field field--search">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <span class="sr-only">搜索应用名称或路径</span>
+          <input type="search" placeholder="搜索名称或路径">
+        </label>
+        <label class="field">
+          阈值
+          <select>
+            <option>90 天</option>
+            <option>30 天</option>
+            <option>180 天</option>
+            <option>自定义…</option>
+          </select>
+        </label>
+        <label class="check">
+          <input type="checkbox">
+          仅看记录连续的
+        </label>
+      </div>
+
+      <div class="chips" role="group" aria-label="按状态筛选">
+        <button type="button" class="chip" aria-pressed="true">全部 <span class="chip-count">186</span></button>
+        <button type="button" class="chip" aria-pressed="false">较久未记录 <span class="chip-count">23</span></button>
+        <button type="button" class="chip" aria-pressed="false">观察期内未记录 <span class="chip-count">37</span></button>
+        <button type="button" class="chip" aria-pressed="false">观察不足 <span class="chip-count">52</span></button>
+        <button type="button" class="chip" aria-pressed="false">无法判断 <span class="chip-count">29</span></button>
+        <button type="button" class="chip" aria-pressed="false">近期有使用 <span class="chip-count">41</span></button>
+        <button type="button" class="chip" aria-pressed="false">已排除 <span class="chip-count">3</span></button>
+        <button type="button" class="chip" aria-pressed="false">已失联 <span class="chip-count">1</span></button>
+      </div>
+
+      <div class="workspace">
+        <section class="panel list-panel" aria-label="应用列表">
+          <div class="table-scroll">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">名称</th>
+                  <th scope="col" aria-sort="ascending">最近使用<svg class="sort-mark" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></th>
+                  <th scope="col">安装/更新日期</th>
+                  <th scope="col">状态</th>
+                  <th scope="col">记录覆盖</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr aria-selected="true">
+                  <td><div class="name-cell"><span class="avatar" aria-hidden="true">B</span><div><span class="primary-text">Blender 4.2</span><span class="sub">4.2.3</span></div></div></td>
+                  <td><span class="mono">06-18 21:40</span><span class="sub">115 天前</span></td>
+                  <td><span class="mono">2026-03-02</span><span class="sub">安装/维护 · MSI 登记</span></td>
+                  <td><span class="tag tag--stale">较久未记录</span></td>
+                  <td><span class="cov"><span class="cov-mark cov-mark--partial" aria-hidden="true"></span>有中断</span></td>
+                </tr>
+                <tr>
+                  <td><div class="name-cell"><span class="avatar" aria-hidden="true">O</span><div><span class="primary-text">OBS Studio</span><span class="sub">31.1.2</span></div></div></td>
+                  <td><span class="mono">06-25 08:12</span><span class="sub">108 天前</span></td>
+                  <td><span class="mono">2025-12-14</span><span class="sub">系统登记日期</span></td>
+                  <td><span class="tag tag--stale">较久未记录</span></td>
+                  <td><span class="cov"><span class="cov-mark cov-mark--partial" aria-hidden="true"></span>有中断</span></td>
+                </tr>
+                <tr>
+                  <td><div class="name-cell"><span class="avatar" aria-hidden="true">Z</span><div><span class="primary-text">Zoom Workplace</span><span class="sub">6.5.1</span></div></div></td>
+                  <td><span class="mono">06-30 16:45</span><span class="sub">103 天前</span></td>
+                  <td><span class="mono">2026-08-27</span><span class="sub">系统登记日期</span></td>
+                  <td><span class="tag tag--excluded">已排除</span><span class="sub">长期保留</span></td>
+                  <td><span class="cov">—</span></td>
+                </tr>
+                <tr>
+                  <td><div class="name-cell"><span class="avatar" aria-hidden="true">T</span><div><span class="primary-text">Microsoft To Do</span><span class="sub">2.148 · MSIX</span></div></div></td>
+                  <td><span class="mono">07-02 09:30</span><span class="sub">101 天前</span></td>
+                  <td><span class="mono">2026-09-28</span><span class="sub">包安装/更新</span></td>
+                  <td><span class="tag tag--stale">较久未记录</span></td>
+                  <td><span class="cov"><span class="cov-mark cov-mark--partial" aria-hidden="true"></span>有中断</span></td>
+                </tr>
+                <tr>
+                  <td><div class="name-cell"><span class="avatar" aria-hidden="true">N</span><div><span class="primary-text">Notepad++</span><span class="sub">8.8.5</span></div></div></td>
+                  <td><span class="mono">10-09 17:26</span><span class="sub">2 天前</span></td>
+                  <td><span class="mono">2026-09-03</span><span class="sub">系统登记日期</span></td>
+                  <td><span class="tag tag--recent">近期有使用</span></td>
+                  <td><span class="cov">—</span></td>
+                </tr>
+                <tr>
+                  <td><div class="name-cell"><span class="avatar" aria-hidden="true">微</span><div><span class="primary-text">微信</span><span class="sub">4.1.0</span></div></div></td>
+                  <td><span class="mono">今天 09:58</span></td>
+                  <td><span class="value-missing">未知</span><span class="sub">登记中没有日期</span></td>
+                  <td><span class="tag tag--recent">近期有使用</span></td>
+                  <td><span class="cov">—</span></td>
+                </tr>
+                <tr>
+                  <td><div class="name-cell"><span class="avatar" aria-hidden="true">V</span><div><span class="primary-text">Visual Studio Code</span><span class="sub">1.104.2 · 当前用户</span></div></div></td>
+                  <td><span class="mono">今天 10:12</span></td>
+                  <td><span class="mono">2026-09-30</span><span class="sub">系统登记日期</span></td>
+                  <td><span class="tag tag--recent">近期有使用</span></td>
+                  <td><span class="cov">—</span></td>
+                </tr>
+                <tr>
+                  <td><div class="name-cell"><span class="avatar" aria-hidden="true">S</span><div><span class="primary-text">Steam</span><span class="sub">2.10.91</span></div></div></td>
+                  <td><span class="value-missing">未记录</span><span class="sub">观察 131 天</span></td>
+                  <td><span class="value-missing">未知</span><span class="sub">登记中没有日期</span></td>
+                  <td><span class="tag tag--never">观察期内未记录</span></td>
+                  <td><span class="cov"><span class="cov-mark cov-mark--partial" aria-hidden="true"></span>有中断</span></td>
+                </tr>
+                <tr>
+                  <td><div class="name-cell"><span class="avatar" aria-hidden="true">C</span><div><span class="primary-text">Clipchamp</span><span class="sub">4.3 · MSIX</span></div></div></td>
+                  <td><span class="value-missing">未记录</span><span class="sub">观察 131 天</span></td>
+                  <td><span class="mono">2026-09-12</span><span class="sub">包安装/更新</span></td>
+                  <td><span class="tag tag--never">观察期内未记录</span></td>
+                  <td><span class="cov"><span class="cov-mark cov-mark--partial" aria-hidden="true"></span>有中断</span></td>
+                </tr>
+                <tr>
+                  <td><div class="name-cell"><span class="avatar" aria-hidden="true">D</span><div><span class="primary-text">draw.io</span><span class="sub">28.1.2 · 便携</span></div></div></td>
+                  <td><span class="value-missing">未记录</span><span class="sub">观察 20 天</span></td>
+                  <td><span class="value-missing">—</span><span class="sub">便携应用，无登记</span></td>
+                  <td><span class="tag tag--insufficient">观察不足</span><span class="sub">还需 70 天</span></td>
+                  <td><span class="cov">—</span></td>
+                </tr>
+                <tr>
+                  <td><div class="name-cell"><span class="avatar" aria-hidden="true">P</span><div><span class="primary-text">Python 3.12.3 (64-bit)</span><span class="sub">3.12.3</span></div></div></td>
+                  <td><span class="value-missing">未记录</span></td>
+                  <td><span class="mono">2024-04-18</span><span class="sub">安装/维护 · MSI 登记</span></td>
+                  <td><span class="tag tag--unknown">无法判断</span><span class="sub">没有可匹配入口</span></td>
+                  <td><span class="cov">—</span></td>
+                </tr>
+                <tr>
+                  <td><div class="name-cell"><span class="avatar" aria-hidden="true">X</span><div><span class="primary-text">XMind 2023</span><span class="sub">23.12</span></div></div></td>
+                  <td><span class="value-missing">未记录</span></td>
+                  <td><span class="mono">2024-02-07</span><span class="sub">系统登记日期</span></td>
+                  <td><span class="tag tag--unavailable">已失联</span><span class="sub">连续 2 次扫描未找到</span></td>
+                  <td><span class="cov">—</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pager">
+            <span class="pager-info">共 186 项 · 每页 50 · 没有时间的项排在最后</span>
+            <button type="button" class="btn" aria-label="上一页" disabled>‹</button>
+            <span class="mono">1 / 4</span>
+            <button type="button" class="btn" aria-label="下一页">›</button>
+          </div>
+        </section>
+
+        <aside class="panel detail" aria-label="应用详情">
+          <div class="detail-head">
+            <span class="avatar avatar--lg" aria-hidden="true">B</span>
+            <div>
+              <h2 class="detail-title">Blender 4.2</h2>
+              <span class="sub">Blender Foundation · 4.2.3 · Win32</span>
+            </div>
+            <button type="button" class="btn btn--icon" aria-label="关闭详情">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+          </div>
+
+          <div class="verdict">
+            <div class="verdict-line">
+              <span class="tag tag--stale">较久未记录到使用</span>
+              <span class="small">记录有中断</span>
+            </div>
+            已观察 131 天，最后一次看到它在前台是 115 天前，超过 90 天阈值 25 天。期间应用记录暂停过 3 天，结论只作核对参考。
+          </div>
+
+          <section aria-labelledby="track-title">
+            <div class="track-head">
+              <h3 class="section-label" id="track-title">观察轨迹</h3>
+              <span class="small muted">06-02 至今 · 按天汇总</span>
+            </div>
+            <div class="track-labels" aria-hidden="true">
+              <span style="left: 31.3%">90 天阈值 · 07-13</span>
+            </div>
+            <div class="track-plot" role="img" aria-label="Blender 观察轨迹：06-02 开始观察，06-03 至 06-18 有 4 天有使用记录，最近一次在 06-18；07-13 阈值线之后没有记录；08-21 至 08-24 记录暂停。">
+              <div class="track-recent" style="left: 31.3%"></div>
+              <div class="track-threshold" style="left: 31.3%"></div>
+              <div class="track-line" style="left: 0"></div>
+              <div class="track-gap" style="left: 61.1%; width: 2.3%"></div>
+              <span class="track-mark" style="left: 0.8%"></span>
+              <span class="track-mark" style="left: 2.3%"></span>
+              <span class="track-mark" style="left: 6.9%"></span>
+              <span class="track-last" style="left: 12.2%"></span>
+            </div>
+            <div class="track-axis" aria-hidden="true">
+              <span style="left: 0">06-02</span>
+              <span style="left: 22.1%">7月</span>
+              <span style="left: 45.8%">8月</span>
+              <span style="left: 69.5%">9月</span>
+              <span style="left: 100%">今天</span>
+            </div>
+            <ul class="track-legend">
+              <li><span class="key key--mark" aria-hidden="true"></span>当天有记录</li>
+              <li><span class="key key--last" aria-hidden="true"></span>最近一次</li>
+              <li><span class="key key--gap" aria-hidden="true"></span>记录中断</li>
+              <li><span class="key key--recent" aria-hidden="true"></span>最近 90 天</li>
+            </ul>
+            <ul class="track-gaps">
+              <li><span class="mono">08-21 19:02 → 08-24 08:40</span><span class="muted">手动暂停</span></li>
+            </ul>
+          </section>
+
+          <dl class="facts">
+            <dt>最近使用</dt>
+            <dd><span class="mono">2026-06-18 21:40</span><span class="sub">进入前台</span></dd>
+            <dt>开始观察</dt>
+            <dd class="mono">2026-06-02 10:21</dd>
+            <dt>安装/维护日期</dt>
+            <dd><span class="mono">2026-03-02</span><span class="small muted">（仅到日）</span><span class="sub" style="white-space: normal">MSI 卸载登记，可能是安装、更新或修复时间</span></dd>
+            <dt>首次发现</dt>
+            <dd class="mono">2026-06-02 10:21</dd>
+            <dt>启动入口</dt>
+            <dd><span class="mono path">C:\Program Files\Blender Foundation\Blender 4.2\blender.exe</span><span class="verified">已验证</span></dd>
+          </dl>
+
+          <div>
+            <h3 class="section-label">最近记录</h3>
+            <ul class="event-list">
+              <li><span class="mono">06-18 21:40</span><span class="muted">进入前台</span></li>
+              <li><span class="mono">06-18 21:12</span><span class="muted">活跃采样</span></li>
+              <li><span class="mono">06-11 14:05</span><span class="muted">进入前台</span></li>
+            </ul>
+            <a href="#" class="small" style="display: inline-block; margin-top: 8px">查看全部记录</a>
+          </div>
+
+          <div class="detail-actions">
+            <button type="button" class="btn">打开所在位置</button>
+            <button type="button" class="btn">Windows 应用设置</button>
+            <button type="button" class="btn btn--subtle">排除此应用（长期保留）</button>
+          </div>
+          <p class="small muted">DeskTrace 不会卸载应用。需要卸载时，请在 Windows 设置中操作。</p>
+        </aside>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>概览 · DeskTrace 界面原型</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2457c5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 14l3-3 3 2 4-5"/></svg>
+      DeskTrace
+    </div>
+    <div class="topbar-spacer"></div>
+    <div class="topbar-status">
+      <span class="dot dot--ok" aria-hidden="true"></span>
+      <span>正在记录</span>
+      <span class="sep" aria-hidden="true">·</span>
+      <span>应用、文件夹均正常</span>
+      <span class="sep" aria-hidden="true">·</span>
+      <span>已观察 131 天</span>
+    </div>
+    <button type="button" class="btn btn--sm">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>
+      暂停记录
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="主导航">
+      <a class="nav-link is-active" href="overview.html" aria-current="page">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        <span class="nav-label">概览</span>
+      </a>
+      <a class="nav-link" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <span class="nav-label">文件夹</span>
+        <span class="nav-count">64</span>
+      </a>
+      <a class="nav-link" href="applications.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg>
+        <span class="nav-label">应用</span>
+        <span class="nav-count">186</span>
+      </a>
+      <a class="nav-link" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        <span class="nav-label">设置</span>
+      </a>
+      <div class="sidebar-foot">
+        <div>观察起点</div>
+        <div class="mono">2026-06-02 10:21</div>
+        <div style="margin-top: 6px">关闭窗口后在托盘继续记录</div>
+      </div>
+    </nav>
+
+    <main class="content">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">概览</h1>
+          <p class="page-desc">自 2026-06-02 起已观察 131 天。下面的数字都按 90 天阈值计算。</p>
+        </div>
+        <label class="field">
+          阈值
+          <select>
+            <option>90 天</option>
+            <option>30 天</option>
+            <option>180 天</option>
+          </select>
+        </label>
+      </div>
+
+      <section class="panel" aria-labelledby="collect-title">
+        <div class="section-head"><h2 id="collect-title">采集状态</h2></div>
+        <div class="table-scroll">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">模块</th>
+                <th scope="col">状态</th>
+                <th scope="col">最近确认</th>
+                <th scope="col">说明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="primary-text">应用使用记录</td>
+                <td><span class="state-ok"><span class="dot dot--ok" aria-hidden="true"></span>运行中</span></td>
+                <td class="mono">10:14:05</td>
+                <td class="muted">前台切换即时记录，前台停留时每 60 秒采样一次</td>
+              </tr>
+              <tr>
+                <td class="primary-text">文件夹浏览记录</td>
+                <td><span class="state-ok"><span class="dot dot--ok" aria-hidden="true"></span>运行中</span></td>
+                <td class="mono">10:14:05</td>
+                <td class="muted">资源管理器活动标签页，每 2 秒检查；3 个观察范围</td>
+              </tr>
+              <tr>
+                <td class="primary-text">应用清单</td>
+                <td><span class="state-idle"><span class="dot dot--idle" aria-hidden="true"></span>空闲</span></td>
+                <td class="mono">今天 08:30</td>
+                <td class="muted">Win32 172 个、MSIX 14 个；下次刷新 14:30</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="dist-title">
+        <div class="section-head section-head--plain">
+          <h2 id="dist-title">候选分布</h2>
+          <span class="small muted">点击图例进入对应筛选</span>
+        </div>
+        <div class="panel-body">
+          <div class="dist">
+            <div class="dist-head"><span class="primary-text">应用</span><span class="mono muted">186 个</span></div>
+            <div class="dist-bar" role="img" aria-label="应用：近期有使用 41，较久未记录 23，观察期内未记录 37，观察不足 52，无法判断 29，已排除或已失联 4">
+              <span class="dist-seg seg-recent" style="flex: 41 1 0" title="近期有使用 41 个"></span>
+              <span class="dist-seg seg-stale" style="flex: 23 1 0" title="较久未记录 23 个"></span>
+              <span class="dist-seg seg-never" style="flex: 37 1 0" title="观察期内未记录 37 个"></span>
+              <span class="dist-seg seg-insufficient" style="flex: 52 1 0" title="观察不足 52 个"></span>
+              <span class="dist-seg seg-unknown" style="flex: 29 1 0" title="无法判断 29 个"></span>
+              <span class="dist-seg seg-other" style="flex: 4 1 0" title="已排除/已失联 4 个"></span>
+            </div>
+            <div class="legend">
+              <a href="applications.html"><span class="swatch seg-recent" aria-hidden="true"></span>近期有使用 <span class="mono">41</span></a>
+              <a href="applications.html"><span class="swatch seg-stale" aria-hidden="true"></span>较久未记录 <span class="mono">23</span></a>
+              <a href="applications.html"><span class="swatch seg-never" aria-hidden="true"></span>观察期内未记录 <span class="mono">37</span></a>
+              <a href="applications.html"><span class="swatch seg-insufficient" aria-hidden="true"></span>观察不足 <span class="mono">52</span></a>
+              <a href="applications.html"><span class="swatch seg-unknown" aria-hidden="true"></span>无法判断 <span class="mono">29</span></a>
+              <a href="applications.html"><span class="swatch seg-other" aria-hidden="true"></span>已排除/已失联 <span class="mono">4</span></a>
+            </div>
+          </div>
+          <div class="dist">
+            <div class="dist-head"><span class="primary-text">文件夹</span><span class="mono muted">64 个</span></div>
+            <div class="dist-bar" role="img" aria-label="文件夹：近期有使用 18，较久未记录 9，观察期内未记录 6，观察不足 27，无法判断 2，已排除或已失联 2">
+              <span class="dist-seg seg-recent" style="flex: 18 1 0" title="近期有使用 18 个"></span>
+              <span class="dist-seg seg-stale" style="flex: 9 1 0" title="较久未记录 9 个"></span>
+              <span class="dist-seg seg-never" style="flex: 6 1 0" title="观察期内未记录 6 个"></span>
+              <span class="dist-seg seg-insufficient" style="flex: 27 1 0" title="观察不足 27 个"></span>
+              <span class="dist-seg seg-unknown" style="flex: 2 1 0" title="无法判断 2 个"></span>
+              <span class="dist-seg seg-other" style="flex: 2 1 0" title="已排除/已失联 2 个"></span>
+            </div>
+            <div class="legend">
+              <a href="#"><span class="swatch seg-recent" aria-hidden="true"></span>近期有使用 <span class="mono">18</span></a>
+              <a href="#"><span class="swatch seg-stale" aria-hidden="true"></span>较久未记录 <span class="mono">9</span></a>
+              <a href="#"><span class="swatch seg-never" aria-hidden="true"></span>观察期内未记录 <span class="mono">6</span></a>
+              <a href="#"><span class="swatch seg-insufficient" aria-hidden="true"></span>观察不足 <span class="mono">27</span></a>
+              <a href="#"><span class="swatch seg-unknown" aria-hidden="true"></span>无法判断 <span class="mono">2</span></a>
+              <a href="#"><span class="swatch seg-other" aria-hidden="true"></span>已排除/已失联 <span class="mono">2</span></a>
+            </div>
+          </div>
+          <p class="small muted" style="margin-top: 16px">“观察不足”表示开始观察还不到 90 天，暂时不能下结论。“无法判断”多是安装项找不到启动入口。</p>
+        </div>
+      </section>
+
+      <div class="split">
+        <section class="panel" aria-labelledby="gaps-title">
+          <div class="section-head"><h2 id="gaps-title">记录缺口</h2></div>
+          <ul class="plain-list">
+            <li><span class="mono grow">08-21 19:02 → 08-24 08:40</span><span>应用记录</span><span class="muted">手动暂停</span></li>
+            <li><span class="mono grow">07-05 14:20 → 14:31</span><span>文件夹记录</span><span class="muted">资源管理器无响应</span></li>
+          </ul>
+          <p class="panel-note">缺口期间的结论会标“记录有中断”，不会当作连续观察。</p>
+        </section>
+
+        <section class="panel" aria-labelledby="scope-title">
+          <div class="section-head">
+            <h2 id="scope-title">文件夹观察范围</h2>
+            <a href="#" class="small">管理范围</a>
+          </div>
+          <ul class="plain-list">
+            <li><span class="mono grow">D:\Projects</span><span class="muted">含子目录</span></li>
+            <li><span class="mono grow">D:\Downloads</span><span class="muted">仅此目录</span></li>
+            <li><span class="mono grow">E:\素材库</span><span class="muted">含子目录</span></li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
